@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>OAuth Redirect</title>
+    <meta charset="UTF-8" />
+    <title>Redirigiendo...</title>
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const code = params.get("code");
+      if (code) {
+        // Redirige localmente con el code como query param
+        window.location.href = `http://localhost:5173/callback?code=${code}`;
+      } else {
+        document.body.innerHTML = "<h2>No se encontró el parámetro ?code</h2>";
+      }
+    </script>
   </head>
   <body>
-    <h1>Autenticación exitosa</h1>
-    <p>Copia esta URL desde la barra de direcciones del navegador y pégala en tu app.</p>
+    <p>Procesando redirección...</p>
   </body>
 </html>
